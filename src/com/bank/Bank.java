@@ -121,4 +121,13 @@ public class Bank {
         customer.setAccunt(accounts[getNumOfAccount()]);
         setNumOfAccount();
     }
+
+    public void ShowAccounts (){
+        for (int i=0 ;i<numOfCustomer+1 ; i++){
+            for (int j =0 ; j<customers[i].getNumOfAccount()+1 ; j++) {
+
+                System.out.println(customers[i].getFullname()+ ":"+customers[i].getAccount(i).toString());
+            }
+        }
+    }
 }

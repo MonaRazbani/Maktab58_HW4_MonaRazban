@@ -49,4 +49,12 @@ public class Account {
     public void setBalance(double balance) {
         this.balance = balance;
     }
+
+    @Override
+    public String toString() {
+        return
+                "   " + id +
+                " opening account date :" + openingAccunt.toString() +
+                " balance :" + balance ;
+    }
 }

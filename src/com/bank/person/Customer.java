@@ -19,6 +19,9 @@ public class Customer extends Person{
         this.numOfAccount++;
     }
 
+    public Account getAccount (int index ){
+        return accunts[index];
+    }
     public void setAccunt (Account account){
         accunts[getNumOfAccount()]= account;
     }

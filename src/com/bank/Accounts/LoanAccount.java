@@ -3,6 +3,8 @@ package com.bank.Accounts;
 import com.bank.Date.*;
 import com.bank.person.*;
 
+import java.util.Arrays;
+
 
 public class LoanAccount extends Account{
         private double Interest;
@@ -42,7 +44,7 @@ public class LoanAccount extends Account{
         }
 
 
-        public boolean[] getPayment() {
+    public boolean[] getPayment() {
             return payment;
         }
 
@@ -65,5 +67,16 @@ public class LoanAccount extends Account{
         public void setNumOfLoansPaid(int numOfLoansPaid) {
             this.numOfLoansPaid = numOfLoansPaid;
         }
+    @Override
+    public String toString() {
+        return "Type : LoanAccount" + super.toString()+
+                "Interest :" + Interest +
+                " loan :" + loan +
+                " periodTime :" + periodTime +
+                " payment :" + Arrays.toString(payment) +
+                " amountOfEachLoan :" + amountOfEachLoan +
+                " Paid :" + numOfLoansPaid +
+                '}';
+    }
 
     }

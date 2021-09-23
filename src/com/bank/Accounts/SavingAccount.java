@@ -10,4 +10,11 @@ public class SavingAccount extends Account {
     public SavingAccount(MyDate openingAccunt, double balance) {
         super(openingAccunt, balance);
     }
+
+    @Override
+    public String toString() {
+
+        return "Type : SavingAccount" +super.toString()+
+                " profit :" + profit ;
+    }
 }

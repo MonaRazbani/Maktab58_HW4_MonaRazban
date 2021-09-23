@@ -19,4 +19,10 @@ public class CheckingAccount extends Account {
     public double getWage() {
         return wage;
     }
+
+    @Override
+    public String toString() {
+        return "Type : CheckingAccount " +super.toString()+
+                " balance :" + balance ;
+    }
 }
