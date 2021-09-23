@@ -13,13 +13,17 @@ public class Account {
 
     public Account() {
     }
-
-    ;
-
     public Account(MyDate openingAccunt) {
         Random rand = new Random();
         this.id = rand.nextInt(900000) + 100000;
         this.openingAccunt = openingAccunt;
+    }
+
+    public Account(MyDate openingAccunt, double balance) {
+        Random rand = new Random();
+        this.id = rand.nextInt(900000) + 100000;
+        this.openingAccunt = openingAccunt;
+        this.balance=balance;
     }
 
     public double getId() {

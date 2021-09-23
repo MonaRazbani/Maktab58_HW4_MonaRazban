@@ -7,7 +7,7 @@ import com.bank.person.Person;
 public class SavingAccount extends Account {
     private double profit = 0.1;
 
-    public SavingAccount(MyDate openingAccunt) {
-        super(openingAccunt);
+    public SavingAccount(MyDate openingAccunt, double balance) {
+        super(openingAccunt, balance);
     }
 }

@@ -6,10 +6,10 @@ import com.bank.person.*;
 public class CheckingAccount extends Account {
     private double limitless = 2000000;
     private double wage = 700;
-    private Account bank;
+    private double balance ;
 
-    public CheckingAccount(MyDate openingAccunt) {
-        super(openingAccunt);
+    public CheckingAccount(MyDate openingAccunt, double balance) {
+        super(openingAccunt, balance);
     }
 
     public double getLimitless() {
