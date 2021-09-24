@@ -21,8 +21,18 @@ public class CheckingAccount extends Account {
     }
 
     @Override
+    public void withdrawMoney(Account origin, double amountMoney) {
+        if (amountMoney <= getLimitless()) {
+            super.withdrawMoney(origin, amountMoney);
+            super.withdrawMoney(origin, 700);
+        }
+    }
+
+    @Override
     public String toString() {
         return "Type : CheckingAccount " +super.toString()+
                 " balance :" + balance ;
     }
+
+
 }

@@ -2,6 +2,7 @@ package com.bank.Accounts;
 
 import java.util.Scanner;
 import com.bank.Date.*;
+import com.bank.person.Customer;
 import com.bank.person.Person;
 
 import java.util.*;
@@ -48,6 +49,18 @@ public class Account {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public void withdrawMoney(Account origin , double amountMoney ) {
+
+            if (origin.getBalance() - amountMoney > 10000) {
+                origin.setBalance(origin.getBalance() - amountMoney);
+            }
+            else System.out.println("Lack of inventory \n not done  ");
+    }
+
+    public void depositMoney (Account origin , double amountMoney){
+
     }
 
     @Override

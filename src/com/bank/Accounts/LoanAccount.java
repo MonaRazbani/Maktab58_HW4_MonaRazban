@@ -64,9 +64,35 @@ public class LoanAccount extends Account{
             return numOfLoansPaid;
         }
 
-        public void setNumOfLoansPaid(int numOfLoansPaid) {
-            this.numOfLoansPaid = numOfLoansPaid;
+        public void setNumOfLoansPaid() {
+            this.numOfLoansPaid ++;
         }
+
+    @Override
+    public void withdrawMoney(Account origin , double amountMoney ) {
+
+        if (origin.getBalance() - amountMoney > 10000) {
+            origin.setBalance(origin.getBalance() - amountMoney);
+        }
+        else System.out.println("Lack of inventory \n not done  ");
+    }
+
+    public void loanRepayment(LoanAccount loanAccount,MyDate date){
+            if(loanAccount.getOpeningAccunt().getDay()==date.getDay()) {
+                if (loanAccount.getAmountOfEachLoan() < loanAccount.getBalance()) {
+                    withdrawMoney(loanAccount, loanAccount.getAmountOfEachLoan());
+                    loanAccount.setPayment(getNumOfLoansPaid(), true);
+                    loanAccount.setNumOfLoansPaid();
+                } else {
+                    System.out.println("account balance is not enough");
+                    loanAccount.setPayment(numOfLoansPaid, false);
+                    loanAccount.setNumOfLoansPaid();
+                }
+            }
+            else System.out.println("The loan has not been repaid");
+
+    }
+
     @Override
     public String toString() {
         return "Type : LoanAccount" + super.toString()+
