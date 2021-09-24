@@ -6,10 +6,11 @@ import com.bank.person.*;
 public class CheckingAccount extends Account {
     private double limitless = 2000000;
     private double wage = 700;
-    private double balance ;
+    private double balance;
 
     public CheckingAccount(MyDate openingAccunt, double balance) {
         super(openingAccunt, balance);
+
     }
 
     public double getLimitless() {
@@ -21,18 +22,19 @@ public class CheckingAccount extends Account {
     }
 
     @Override
-    public void withdrawMoney(Account origin, double amountMoney) {
+    public void withdrawMoney(double amountMoney) {
         if (amountMoney <= getLimitless()) {
-            super.withdrawMoney(origin, amountMoney);
-            super.withdrawMoney(origin, 700);
+            super.withdrawMoney(amountMoney);
+            super.withdrawMoney(700);
         }
+
+
     }
+
 
     @Override
     public String toString() {
-        return "Type : CheckingAccount " +super.toString()+
-                " balance :" + balance ;
+        return "Type : CheckingAccount " + super.toString() +
+                " balance :" + balance;
     }
-
-
 }

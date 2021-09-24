@@ -22,12 +22,26 @@ public class SavingAccount extends Account {
     }
 
     @Override
-    public void withdrawMoney(Account origin, double amountMoney){
+    public void withdrawMoney( double amountMoney){
         if (amountMoney>getBalance()-getPrimitiveBalance()-10000){
-            super.withdrawMoney(origin,amountMoney);
+            super.withdrawMoney(amountMoney);
         }
         else System.out.println("cant withdraw from your primitive balance ");
     }
+
+    @Override
+    public void depositMoney( double amountMoney) {
+        super.depositMoney( amountMoney);
+    }
+
+    public void DepositInterest( MyDate date ){
+        if (date.getDay()==getOpeningAccunt().getDay()){
+            depositMoney( getPrimitiveBalance()*getProfit());
+            System.out.println("new balance : "+getBalance());
+        }
+        else System.out.println("Profit deposit time has not arrived");
+    }
+
 
     @Override
     public String toString() {

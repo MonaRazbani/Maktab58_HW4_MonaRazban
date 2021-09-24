@@ -14,7 +14,6 @@ public class Customer extends Person{
     public int getNumOfAccount() {
         return numOfAccount;
     }
-
     public void setNumOfAccount() {
         this.numOfAccount++;
     }
@@ -22,6 +21,7 @@ public class Customer extends Person{
     public Account getAccount (int index ){
         return accunts[index];
     }
+
     public void setAccunt (Account account){
         accunts[getNumOfAccount()]= account;
     }

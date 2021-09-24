@@ -11,7 +11,7 @@ public class Account {
     private double id;
     private MyDate openingAccunt;
     private double balance;
-
+    private String type ;
     public Account() {
     }
     public Account(MyDate openingAccunt) {
@@ -51,16 +51,22 @@ public class Account {
         this.balance = balance;
     }
 
-    public void withdrawMoney(Account origin , double amountMoney ) {
+    public void withdrawMoney( double amountMoney ) {
 
-            if (origin.getBalance() - amountMoney > 10000) {
-                origin.setBalance(origin.getBalance() - amountMoney);
+            if (getBalance() - amountMoney > 10000) {
+               setBalance(getBalance() - amountMoney);
             }
             else System.out.println("Lack of inventory \n not done  ");
     }
 
-    public void depositMoney (Account origin , double amountMoney){
+    public void depositMoney ( double amountMoney){
+        setBalance(getBalance()+amountMoney);
+        System.out.println("new balance :"+getBalance());
 
+    }
+
+    public Double calculateInterests (){
+        return null;
     }
 
     @Override
@@ -70,4 +76,5 @@ public class Account {
                 " opening account date :" + openingAccunt.toString() +
                 " balance :" + balance ;
     }
+
 }

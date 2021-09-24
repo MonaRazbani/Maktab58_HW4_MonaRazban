@@ -1,4 +1,5 @@
 package com.bank;
+
 import com.bank.*;
 import com.bank.Accounts.Account;
 import com.bank.Accounts.CheckingAccount;
@@ -122,12 +123,63 @@ public class Bank {
         setNumOfAccount();
     }
 
+    public boolean isExisted (double id){
+        boolean isExisted = false;
+        for (int i =0 ;i<= getNumOfAccount(); i++){
+            if(accounts[i].getId()==id){
+                isExisted = true;
+                break;
+            }
+        }
+        return isExisted;
+    }
+
+    public Account searchAccount (double id){
+        if (isExisted(id)) {
+            Account getAccout = new Account();
+            for (int i = 0; i <= getNumOfAccount(); i++) {
+                if (accounts[i].getId() == id) {
+                    getAccout = accounts[i];
+                    break;
+                }
+            }
+            return getAccout;
+        }
+        else return null;
+    }
+
     public void ShowAccounts() {
         for (int i = 0; i < numOfCustomer + 1; i++) {
             for (int j = 0; j < customers[i].getNumOfAccount() + 1; j++) {
                 System.out.println(customers[i].getFullname() + ":" + customers[i].getAccount(i).toString());
             }
         }
+    }
+
+    public void withdrawMoney() {
+        System.out.println("enter account ID :");
+        Scanner scanner = new Scanner(System.in);
+        double id = scanner.nextDouble();
+        if (isExisted(id)){
+            System.out.println("enter amount of money ");
+            double amountOfMoney = scanner.nextDouble();
+            searchAccount(id).withdrawMoney(amountOfMoney);
+        }
+        else System.out.println("wrong ID");
+
+    }
+
+    public void deposit (){
+        System.out.println("enter account ID :");
+        Scanner scanner = new Scanner(System.in);
+        double id = scanner.nextDouble();
+        if (isExisted(id)){
+            System.out.println("enter amount of money ");
+            double amountOfMoney = scanner.nextDouble();
+            searchAccount(id).depositMoney(amountOfMoney);
+        }
+        else System.out.println("wrong ID");
+
     }
 
 }
